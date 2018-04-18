@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
     let fTemps = [];
     data.forEach((day, i) => {
       let iconPath = "./icons/" + day.icon
-      let celciusMax = day.maxTempC + " C"
-      let celciusMin = day.minTempC + " C"
+      let celciusMax = day.maxTempC + "° C"
+      let celciusMin = day.minTempC + "° C"
       celciusTemps.push({celciusMax, celciusMin})
-      let fMax = day.maxTempF + " F"
-      let fMin = day.minTempF + " F"
+      let fMax = day.maxTempF + "° F"
+      let fMin = day.minTempF + "° F"
       fTemps.push({fMax, fMin})
       let newDay = $("<div> </div>")
       newDay.addClass(`.weekday weekday${i}`)
@@ -36,15 +36,15 @@ document.addEventListener("DOMContentLoaded", ()=> {
   $(".toggle").on("click", () => {
     if(tempF) {
       let allHighs = $(".day-max");
-        for (let i = 0; i < allHighs.length; i++) {
-          allHighs[i].innerHTML = "High: " +  celciusTemps[i].celciusMax;
-        }
-        let allLows = $(".day-min");
-        for (let i = 0; i < allLows.length; i++) {
-          allLows[i].innerHTML = "Low: " + celciusTemps[i].celciusMin;
-        }
+      for (let i = 0; i < allHighs.length; i++) {
+        allHighs[i].innerHTML = "High: " +  celciusTemps[i].celciusMax;
+      }
+      let allLows = $(".day-min");
+      for (let i = 0; i < allLows.length; i++) {
+        allLows[i].innerHTML = "Low: " + celciusTemps[i].celciusMin;
+      }
     } else {
-      let allHighs = $(".day-max");
+        let allHighs = $(".day-max");
         for (let i = 0; i < allHighs.length; i++) {
           allHighs[i].innerHTML = "High: " +  fTemps[i].fMax;
         }
@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
         for (let i = 0; i < allLows.length; i++) {
           allLows[i].innerHTML = "Low: " + fTemps[i].fMin;
         }
-
     }
     tempF = !tempF;
   });
