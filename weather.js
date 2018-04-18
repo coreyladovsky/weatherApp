@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", ()=> {
       root.append( newDay )
       newDay.append(`<div class="day-name">${cleanerDate(day.dateTimeISO)}</div>`);
       newDay.append(`<img class="icon" src=${iconPath} alt=""/>`);
-      newDay.append(`<div class="day-min">${day.minTempF}</div>`);
-      newDay.append(`<div class="day-max">${day.maxTempF}</div>`);
+      newDay.append(`<div class="day-max">High: ${day.maxTempF} F</div>`);
+      newDay.append(`<div class="day-min">Low: ${day.minTempF} F</div>`);
     });
 
 
