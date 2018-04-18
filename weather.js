@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", ()=> {
     let data = res.response[0].periods;
     let root = $("#root");
     data.forEach((day, i) => {
+      let iconPath = "./icons/" + day.icon
       let newDay = $("<div> </div>")
       newDay.addClass(`.weekday weekday${i}`)
       root.append( newDay )
       newDay.append(`<div class="day-name">${cleanerDate(day.dateTimeISO)}</div>`);
+      newDay.append(`<img class="icon" src=${iconPath} alt=""/>`);
       newDay.append(`<div class="day-min">${day.minTempF}</div>`);
       newDay.append(`<div class="day-max">${day.maxTempF}</div>`);
     });
