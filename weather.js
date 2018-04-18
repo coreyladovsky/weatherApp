@@ -2,7 +2,8 @@ var mykey = config.MY_KEY;
 var secretkey = config.SECRET_KEY;
 
 const cleanerDate = (dateString) => {
-  return dateString.slice(0, 10);
+  let date = dateString.slice(0, 10);
+  return date.slice(5) +  "-" + date.slice(0, 4);
 };
 
 
@@ -33,32 +34,28 @@ document.addEventListener("DOMContentLoaded", ()=> {
       newDay.append(`<div class="day-min">Low: ${fMin}</div>`);
     });
 
-  $(".toggle").on("click", () => {
-    if(tempF) {
-      let allHighs = $(".day-max");
-      for (let i = 0; i < allHighs.length; i++) {
-        allHighs[i].innerHTML = "High: " +  celciusTemps[i].celciusMax;
-      }
-      let allLows = $(".day-min");
-      for (let i = 0; i < allLows.length; i++) {
-        allLows[i].innerHTML = "Low: " + celciusTemps[i].celciusMin;
-      }
-    } else {
+    $(".toggle").on("click", () => {
+      if(tempF) {
         let allHighs = $(".day-max");
         for (let i = 0; i < allHighs.length; i++) {
-          allHighs[i].innerHTML = "High: " +  fTemps[i].fMax;
+          allHighs[i].innerHTML = "High: " +  celciusTemps[i].celciusMax;
         }
         let allLows = $(".day-min");
         for (let i = 0; i < allLows.length; i++) {
-          allLows[i].innerHTML = "Low: " + fTemps[i].fMin;
+          allLows[i].innerHTML = "Low: " + celciusTemps[i].celciusMin;
         }
-    }
-    tempF = !tempF;
+      } else {
+          let allHighs = $(".day-max");
+          for (let i = 0; i < allHighs.length; i++) {
+            allHighs[i].innerHTML = "High: " +  fTemps[i].fMax;
+          }
+          let allLows = $(".day-min");
+          for (let i = 0; i < allLows.length; i++) {
+            allLows[i].innerHTML = "Low: " + fTemps[i].fMin;
+          }
+      }
+      tempF = !tempF;
+    });
+    
   });
-
-  });
-
-
-
-
 });
